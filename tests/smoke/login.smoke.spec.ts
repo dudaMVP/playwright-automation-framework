@@ -4,7 +4,7 @@ import { test, expect } from '../../fixtures/PageFixture'
 
 test.describe('Validate login page', () => {
     
-    test('validate login page elements', async ({ loginPage }) => {
+    test('validate login page elements @Smoke', async ({ loginPage }) => {
        
        await expect(loginPage.appLogo).toBeVisible()
        await expect(loginPage.appTitle).toBeVisible()
@@ -15,7 +15,7 @@ test.describe('Validate login page', () => {
        await expect(loginPage.demoMemberPortal).toBeVisible()
     })
 
-    test.only('Validate Successful Member login', async ({ loginPage }) => {
+    test('Validate Successful Member login @Smoke', async ({ loginPage }) => {
         await loginPage.navigateToMemberLogin()
         await expect(loginPage.memberLoginSign).toBeVisible()
         await loginPage.memberLogin(process.env.patientUsername!,process.env.patientPassword!)
