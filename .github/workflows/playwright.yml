@@ -11,9 +11,9 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
-      BASE_URL: ${{ secrets.BASE_URL }}
-      PATIENT_USERNAME: ${{ secrets.PATIENT_USERNAME }}
-      PATIENT_PASSWORD: ${{ secrets.PATIENT_PASSWORD }}
+      BASE_URL: ${{ secrets.BASEURL }}
+      PATIENT_USERNAME: ${{ secrets.PATIENTUSERNAME }}
+      PATIENT_PASSWORD: ${{ secrets.PATIENTPASSWORD }}
 
     steps:
       - uses: actions/checkout@v4
@@ -30,9 +30,9 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "baseURL=$BASE_URL" >> .env
-          echo "patientUsername=$PATIENT_USERNAME" >> .env
-          echo "patientPassword=$PATIENT_PASSWORD" >> .env
+          echo "baseURL=$BASEURL" >> .env
+          echo "patientUsername=$PATIENTUSERNAME" >> .env
+          echo "patientPassword=$PATIENTPASSWORD" >> .env
 
       - name: Run Playwright tests
         run: npx playwright test
