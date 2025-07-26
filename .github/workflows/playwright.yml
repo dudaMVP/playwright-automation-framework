@@ -30,9 +30,9 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "baseURL=$BASEURL" >> .env
-          echo "patientUsername=$PATIENTUSERNAME" >> .env
-          echo "patientPassword=$PATIENTPASSWORD" >> .env
+          echo "baseURL=$BASE_URL" >> .env
+          echo "patientUsername=$PATIENT_USERNAME" >> .env
+          echo "patientPassword=$PATIENT_PASSWORD" >> .env
 
       - name: Run Playwright tests
         run: npx playwright test
