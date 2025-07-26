@@ -1,19 +1,24 @@
-import { test, expect } from '@playwright/test'
-import { LoginPage } from '../../pages/LoginPage'
+import { test, expect } from '../../fixtures/PageFixture'
 
 
 
 test.describe('Validate login page', () => {
     
-    test('validate login page elements', async ({ page }) => {
-       await page.goto('/')
-       const loginPage = new LoginPage(page)
-        await expect(loginPage.appLogo).toBeVisible()
+    test('validate login page elements', async ({ loginPage }) => {
+       
+       await expect(loginPage.appLogo).toBeVisible()
        await expect(loginPage.appTitle).toBeVisible()
        await expect(loginPage.portalSubtitle).toBeVisible()
        await expect(loginPage.providerPortal).toBeVisible()
        await expect(loginPage.memberPortal).toBeVisible()
        await expect(loginPage.demoProviderPortal).toBeVisible()
        await expect(loginPage.demoMemberPortal).toBeVisible()
+    })
+
+    test.only('Validate Successful Member login', async ({ loginPage }) => {
+        await loginPage.navigateToMemberLogin()
+        await expect(loginPage.memberLoginSign).toBeVisible()
+        await loginPage.memberLogin(process.env.patientUsername!,process.env.patientPassword!)
+        await expect(loginPage.page).toHaveURL(/\/patient\/dashboard/)
     })
 })
