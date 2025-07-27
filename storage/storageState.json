@@ -1,0 +1,15 @@
+{
+  "cookies": [
+    {
+      "name": "__cf_bm",
+      "value": "If_dmh.RmHSrOv0gdIWC4HRsD0c6qHAtgVotgiWXdpI-1753592789-1.0.1.1-gvCAvaf9mj9bq9ywtspTI35zvclR762G2M.y1SM.5Ep6ukPLcT5XmmHJZyqaFxHuLlw7ZOHHHU3FNHBpiPGNYYTA8I3EXEuCTe2a5by.Qkk",
+      "domain": ".replit.com",
+      "path": "/",
+      "expires": 1753594589.445832,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    }
+  ],
+  "origins": []
+}

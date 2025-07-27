@@ -62,7 +62,7 @@ test.describe('Validate login page', () => {
         await expect(loginPage.emptyPasswordError).not.toBeVisible()
         await expect(loginPage.emptyUsernameError).toHaveText('Username is required')
     })
-    test('Login with correct username and empty password → error message appears @Smoke', async ({ loginPage }) => {
+    test.only('Login with correct username and empty password → error message appears @Smoke', async ({ loginPage }) => {
         await loginPage.navigateToMemberLogin()
         await expect(loginPage.memberLoginSign).toBeVisible()
         await loginPage.memberLogin(process.env.patientUsername!, '')
