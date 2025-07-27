@@ -14,6 +14,7 @@ export class LoginPage {
     readonly memberUsernameInput: Locator
     readonly memberPasswordInput: Locator
     readonly signInButton: Locator
+    readonly invalidCredentialsError: Locator
 
 
     constructor(page: Page) {
@@ -33,6 +34,7 @@ export class LoginPage {
         this.memberUsernameInput = this.page.getByTestId('username-input')
         this.memberPasswordInput = this.page.getByTestId('password-input')
         this.signInButton = this.page.getByTestId('login-submit')
+        this.invalidCredentialsError = this.page.locator('li[role="status"]')
     }
 
     async navigateToMemberLogin() {

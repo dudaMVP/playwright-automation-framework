@@ -21,4 +21,12 @@ test.describe('Validate login page', () => {
         await loginPage.memberLogin(process.env.patientUsername!,process.env.patientPassword!)
         await expect(loginPage.page).toHaveURL(/\/patient\/dashboard/)
     })
+
+    test('Login with invalid password → error message appears @Smoke', async ({ loginPage }) => {
+        await loginPage.navigateToMemberLogin()
+        await expect(loginPage.memberLoginSign).toBeVisible()
+        await loginPage.memberLogin(process.env.patientUsername!, 'invalidPassword')
+        await expect(loginPage.invalidCredentialsError).toBeVisible()
+        await expect(loginPage.invalidCredentialsError).toHaveText('Login FailedInvalid credentials. Please try again.')
+    })
 })
