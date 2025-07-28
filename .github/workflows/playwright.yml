@@ -12,8 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BASE_URL: ${{ secrets.BASEURL }}
+      MEMBER_LOGIN_URL: ${{ secrets.}}
       PATIENT_USERNAME: ${{ secrets.PATIENTUSERNAME }}
       PATIENT_PASSWORD: ${{ secrets.PATIENTPASSWORD }}
+
 
     steps:
       - uses: actions/checkout@v4

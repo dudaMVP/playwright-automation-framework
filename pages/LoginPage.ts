@@ -31,23 +31,12 @@ export class LoginPage {
         this.demoMemberPortal = this.page.locator('#demo-member-login')
 
 
-        // member login portal (shares the same url in replit)
-        this.memberLoginSign = this.page.locator('div[class="font-semibold tracking-tight text-lg"]')
-        this.memberUsernameInput = this.page.getByTestId('username-input')
-        this.memberPasswordInput = this.page.getByTestId('password-input')
-        this.signInButton = this.page.getByTestId('login-submit')
-        this.invalidCredentialsError = this.page.locator('li[role="status"]')
-        this.emptyUsernameError = this.page.locator('[id*=":r0:-form-item-message"]')
-        this.emptyPasswordError = this.page.locator('[id*=":r1:-form-item-message"]')
+    
     }
 
     async navigateToMemberLogin() {
         await this.memberPortal.click()
     }
-    async memberLogin(username: string, password: string) {
-        await this.memberUsernameInput.fill(username)
-        await this.memberPasswordInput.fill(password)
-        await this.signInButton.click()
-    }
+
 
 }
