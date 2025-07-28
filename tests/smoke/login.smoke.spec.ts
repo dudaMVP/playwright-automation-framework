@@ -2,7 +2,7 @@ import { test, expect } from '../../fixtures/PageFixture'
 
 
 
-test.describe('Validate login page', () => {
+test.describe('Smoke Suite - Critical Functions Only', () => {
     
     test('validate login page elements @Smoke', async ({ loginPage }) => {
        
@@ -15,20 +15,12 @@ test.describe('Validate login page', () => {
        await expect(loginPage.demoMemberPortal).toBeVisible()
     })
 
-    test.only('Validate Successful Member login @Smoke', async ({ memberLoginPage }) => {
-    
-        
+    test('Validate Successful Member login @Smoke @Login', async ({ memberLoginPage }) => {
         await memberLoginPage.memberLogin()
         await expect(memberLoginPage.page).toHaveURL(/\/patient\/dashboard/)
     })
 
-//     test('Login with correct username and invalid password → error message appears @Smoke', async ({ loginPage }) => {
-//         await loginPage.navigateToMemberLogin()
-//         await expect(loginPage.memberLoginSign).toBeVisible()
-//         await loginPage.memberLogin(process.env.patientUsername!, 'invalidPassword')
-//         await expect(loginPage.invalidCredentialsError).toBeVisible()
-//         await expect(loginPage.invalidCredentialsError).toHaveText('Login FailedInvalid credentials. Please try again.')
-//     })
+    
 
 //     test('Login with invalid username and correct password → error message appears @Smoke', async ({ loginPage }) => {
 //         await loginPage.navigateToMemberLogin()
