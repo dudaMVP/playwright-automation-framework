@@ -16,6 +16,7 @@ test.describe('Smoke Suite - Critical Functions Only', () => {
     })
 
     test('Validate Successful Member login @Smoke @Login', async ({ memberLoginPage }) => {
+        console.log(memberLoginPage.url())
         await memberLoginPage.memberLogin()
         await expect(memberLoginPage.page).toHaveURL(/\/patient\/dashboard/)
     })
@@ -24,7 +25,7 @@ test.describe('Smoke Suite - Critical Functions Only', () => {
 
 //     test('Login with invalid username and correct password → error message appears @Smoke', async ({ loginPage }) => {
 //         await loginPage.navigateToMemberLogin()
-//         await expect(loginPage.memberLoginSign).toBeVisible()
+//         aw:qait expect(loginPage.memberLoginSign).toBeVisible()
 //         await loginPage.memberLogin('invalidUsername', process.env.patientPassword!)
 //         await expect(loginPage.invalidCredentialsError).toBeVisible()
 //         await expect(loginPage.invalidCredentialsError).toHaveText('Login FailedInvalid credentials. Please try again.')
