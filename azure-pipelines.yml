@@ -31,8 +31,10 @@ steps:
     displayName: 'Run tests'
 
   - task: PublishBuildArtifacts@1
-    inputs:
-      pathToPublish: 'playwright-report'
-      artifactName: 'index.html'
-      publishLocation: 'Container'
-    displayName: 'Publish Playwright HTML Report'
+  inputs:
+    pathToPublish: 'test-results'
+    artifactName: 'playwright-media'
+    publishLocation: 'Container'
+  condition: always()
+  displayName: 'Upload Screenshots & Videos'
+    
