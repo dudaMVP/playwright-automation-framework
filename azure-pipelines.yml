@@ -30,11 +30,6 @@ steps:
       npm run test || true
     displayName: 'Run tests (continue on failure)'
 
-  - script: |
-      echo "Verifying reports directory..."
-      ls -R reports/
-    displayName: 'Debug: Show reports folder'
-
   - task: PublishBuildArtifacts@1
     inputs:
       pathToPublish: 'playwright-report'
