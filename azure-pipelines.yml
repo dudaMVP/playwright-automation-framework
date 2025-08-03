@@ -32,7 +32,7 @@ steps:
 
   - task: PublishBuildArtifacts@1
     inputs:
-      pathToPublish: 'reports/html-report'
-      artifactName: 'playwright-report'
+      pathToPublish: 'playwright-report'
+      artifactName: 'index.html'
       publishLocation: 'Container'
     displayName: 'Publish Playwright HTML Report'
