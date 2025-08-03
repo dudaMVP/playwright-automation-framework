@@ -2,8 +2,10 @@ trigger:
   branches:
     include:
       - master
+
 variables:
   - group: EnvVariables
+
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -17,6 +19,12 @@ steps:
       npm ci
       npx playwright install
     displayName: 'Install dependencies'
+
+  - script: |
+      echo "BASE_URL=$(BASE_URL)" >> .env
+      # add more variables if needed:
+      # echo "API_KEY=$(API_KEY)" >> .env
+    displayName: 'Create .env file'
 
   - script: |
       npm run test
