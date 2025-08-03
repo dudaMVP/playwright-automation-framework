@@ -37,7 +37,7 @@ steps:
 
   - task: PublishBuildArtifacts@1
     inputs:
-      pathToPublish: 'reports/html-report'
+      pathToPublish: 'playwright-report'
       artifactName: 'playwright-report'
       publishLocation: 'Container'
     condition: always()
