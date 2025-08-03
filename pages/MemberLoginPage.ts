@@ -22,13 +22,13 @@ export class MemberLoginPage extends LoginPage {
     }
 
     async memberLogin() {
-        await this.getUsernameInput.fill(process.env.patientUsername!)
-        await this.getPasswordInput.fill(process.env.patientPassword!)
+        await this.getUsernameInput.fill(process.env.PATIENT_USERNAME!)
+        await this.getPasswordInput.fill(process.env.PATIENT_PASSWORD!)
         await this.signInButton.click()
     }
     async memberLoginIncorrectUsername() {
         await this.getUsernameInput.fill('hiJOHN')
-        await this.getPasswordInput.fill(process.env.patientPassword!)
+        await this.getPasswordInput.fill(process.env.PATIENT_PASSWORD!)
         await this.signInButton.click()
     }
 }
