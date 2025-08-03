@@ -24,10 +24,15 @@ steps:
       echo "BASE_URL=$(BASE_URL)" >> .env
       echo "PATIENT_USERNAME=$(PATIENT_USERNAME)" >> .env
       echo "PATIENT_PASSWORD=$(PATIENT_PASSWORD)" >> .env
-      # add more variables if needed:
-      # echo "API_KEY=$(API_KEY)" >> .env
     displayName: 'Create .env file'
 
   - script: |
       npm run test
     displayName: 'Run tests'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: 'reports/html-report'
+      artifactName: 'playwright-report'
+      publishLocation: 'Container'
+    displayName: 'Publish Playwright HTML Report'
