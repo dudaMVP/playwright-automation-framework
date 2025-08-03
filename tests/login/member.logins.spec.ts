@@ -1,7 +1,9 @@
 import { test, expect } from './../../fixtures/PageFixture'
 
 test.describe('Member Login Test Cases @Regression', () => {
-    test('')
+    test('fixed', async ({ memberLoginPage }) => {
+
+    })
 })
 //     test('Login with invalid username and correct password → error message appears @Smoke', async ({ loginPage }) => {
 //         await loginPage.navigateToMemberLogin()

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "test":"npx playwright test",
     "test:smoke": "npx playwright test --grep @Smoke"
   },
   "keywords": [],
