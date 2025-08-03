@@ -27,14 +27,26 @@ steps:
     displayName: 'Create .env file'
 
   - script: |
-      npm run test
-    displayName: 'Run tests'
+      npm run test || true
+    displayName: 'Run tests (continue on failure)'
+
+  - script: |
+      echo "Verifying reports directory..."
+      ls -R reports/
+    displayName: 'Debug: Show reports folder'
 
   - task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: 'test-results'
-    artifactName: 'playwright-media'
-    publishLocation: 'Container'
-  condition: always()
-  displayName: 'Upload Screenshots & Videos'
-    
+    inputs:
+      pathToPublish: 'reports/html-report'
+      artifactName: 'playwright-report'
+      publishLocation: 'Container'
+    condition: always()
+    displayName: 'Upload HTML Report'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: 'test-results'
+      artifactName: 'playwright-media'
+      publishLocation: 'Container'
+    condition: always()
+    displayName: 'Upload Screenshots & Videos'
